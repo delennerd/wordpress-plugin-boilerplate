@@ -15,7 +15,7 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 class PN_Loader {
-    const CLASS_DIR = 'includes/classes/';
+    const CLASS_DIR = 'app/Classes/';
 
     private $werke_class;
     private $users_class;
@@ -26,10 +26,10 @@ class PN_Loader {
 
     function __construct()
     {
-        $this->loadClasses();
+        $this->load_classes();
     }
 
-    public static function getInstance()
+    public static function get_instance()
     {
         if (!self::$_instance) { // If no instance then make one
             self::$_instance = new self();
@@ -38,12 +38,9 @@ class PN_Loader {
         return self::$_instance;
     }
 
-    private function loadClasses()
+    private function load_classes()
     {
-        $this->require_class( 'Werke' );
-        $this->werke_class = new PN_Werke();
-
-        $this->require_class( 'Users' );
+        $this->require_class( 'users' );
         $this->users_class = new PN_Users();
     }
 

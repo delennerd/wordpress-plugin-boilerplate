@@ -11,8 +11,13 @@
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 class PN_Users {
+    private $loader;
+
     public function __construct()
     {
+        global $plugin_name;
+        $this->loader = $plugin_name;
+        
         // Register/Update user form
         add_action( 'user_new_form', array( $this, 'remove_required_user_register_fields' ) );
         add_action( 'show_user_profile', array( $this, 'remove_required_user_register_fields' ) );
@@ -22,9 +27,9 @@ class PN_Users {
         // Generate a unique number for username
         add_action( 'user_new_form', array( $this, 'backend_register_form' ) );
 
-        // Some settings for clients
-        add_action( 'admin_init', array( $this, 'disable_admin_page_for_clients' ) );
-        add_action( 'wp', array( $this, 'disable_admin_bar_for_clients' ) );
+        // Some settings for subscriber
+        add_action( 'admin_init', array( $this, 'disable_admin_page_for_subscriber' ) );
+        add_action( 'wp', array( $this, 'disable_admin_bar_for_subscriber' ) );
     }
 
     /**
@@ -71,10 +76,10 @@ class PN_Users {
     }
 
     /**
-     * No admin access for clients (subscriber)
+     * No admin access for subscriber
      * Hide admin bar for these
      */
-    public function disable_admin_page_for_clients()
+    public function disable_admin_page_for_subscriber()
     {
         if ( ! is_user_logged_in() ) return null;
 
@@ -84,7 +89,10 @@ class PN_Users {
         }
     }
 
-    public function disable_admin_bar_for_clients()
+    /**
+     * 
+     */
+    public function disable_admin_bar_for_subscriber()
     {
         if ( ! is_user_logged_in() ) return null;
 

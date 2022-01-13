@@ -21,11 +21,30 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 define( 'PLUGIN_NAME_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_NAME_BASENAME', plugin_basename( __FILE__ ) );
+define( 'PLUGIN_NAME_URL', plugin_dir_url( __FILE__ ) );
+define( 'PLUGIN_NAME_DIR_TEMPLATES', PLUGIN_NAME_DIR . 'templates' );
 
+/*
+|--------------------------------------------------------------------------
+| Autoloader
+|--------------------------------------------------------------------------
+*/
+$autoloadDirs = [
+    'app/Classes/class-helper',
+    'app/Bootstrap/i18n',
+    'app/inc/enqueue',
+    'app/Bootstrap/loader',
+];
 
-require_once PLUGIN_NAME_DIR . 'includes/classes/class-helper.php';
-require_once PLUGIN_NAME_DIR . 'includes/classes/class-i18n.php';
-require_once PLUGIN_NAME_DIR . 'includes/classes/class-loader.php';
+foreach ($autoloadDirs as $file) {
+    require_once PLUGIN_NAME_DIR . $file . '.php';
+}
+
+/*
+|--------------------------------------------------------------------------
+| Register Loader
+|--------------------------------------------------------------------------
+*/
 
 global $plugin_name;
 
@@ -33,7 +52,7 @@ if ( !function_exists('plugin_name') ) {
     function plugin_name()
     {
         global $plugin_name;
-        $plugin_name = PN_Loader::getInstance();
+        $plugin_name = PN_Loader::get_instance();
         return $plugin_name;
     }
 }
