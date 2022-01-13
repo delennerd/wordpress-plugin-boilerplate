@@ -1,26 +1,25 @@
 <?php
 /**
- * Some functions for all Werke
+ * A example class
  *
  * @since      1.0.0
  * @package    Plugin_Name
- * @subpackage Plugin_Name/includes/classes
+ * @subpackage Plugin_Name/App/Classes
  * @author     delennerd.media <mail@delennerd.de>
  */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class PN_Werke {
+class PN_Example {
     public function __construct()
     {
-        add_action( 'save_post_wr_werke', array( $this, 'create_unique_number_as_book_slug' ), 10, 3 );
-        // add_action( '', array( $this, '' ) );
+        add_action( 'save_post_wr_werke', array( $this, 'create_unique_number_as_slug' ), 10, 3 );
     }
 
     /**
      * Generate a unique string for book slugs with characters and numbers
      */
-    public function create_unique_number_as_book_slug( $post_id, $post, $update )
+    public function create_unique_number_as_slug( $post_id, $post, $update )
     {
         // Only in admin area
         if ( ! is_admin() ) return;
@@ -29,7 +28,7 @@ class PN_Werke {
         if ( $update ) return;
 
         $slug_length = 24;
-        $new_slug = WR_Helper::generate_random_string( $slug_length );
+        $new_slug = PN_Helper::generate_random_string( $slug_length );
 
         wp_update_post( array(
             'ID' => $post_id,

@@ -4,7 +4,7 @@
  *
  * @since      1.0.0
  * @package    Plugin_Name
- * @subpackage Plugin_Name/includes
+ * @subpackage Plugin_Name/App/Bootstrap
  * @author     delennerd.media <mail@delennerd.de>
  */
 
