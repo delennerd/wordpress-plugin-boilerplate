@@ -7,7 +7,7 @@
  * Plugin Name:       Plugin_Name
  * Description:       A custom plugin for the client
  * Version:           1.0.0
- * Author:            Pascal Lehnert
+ * Author:            delennerd.media
  * Author URI:        https://delennerd.media
  * Text Domain:       plugin-name
  * Domain Path:       /languages
@@ -23,9 +23,9 @@ define( 'PLUGIN_NAME_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_NAME_BASENAME', plugin_basename( __FILE__ ) );
 
 
-require_once PLUGIN_NAME_DIR . 'includes/classes/class-Helper.php';
-require_once PLUGIN_NAME_DIR . 'includes/classes/class-I18n.php';
-require_once PLUGIN_NAME_DIR . 'includes/classes/class-Loader.php';
+require_once PLUGIN_NAME_DIR . 'includes/classes/class-helper.php';
+require_once PLUGIN_NAME_DIR . 'includes/classes/class-i18n.php';
+require_once PLUGIN_NAME_DIR . 'includes/classes/class-loader.php';
 
 global $plugin_name;
 

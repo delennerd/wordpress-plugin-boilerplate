@@ -1,0 +1,11 @@
+{
+    "name": "delennerdmedia/wordpress-plugin-boilerplate",
+    "description": "A small boilerplate for WordPress Plugins",
+    "authors": [
+        {
+            "name": "delennerd.media",
+            "email": "mail@delennerd.de"
+        }
+    ],
+    "require": {}
+}

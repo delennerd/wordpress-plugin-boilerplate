@@ -2,12 +2,25 @@
 Contributors: passl19
 Tags: comments, spam
 Requires at least: 3.0.1
-Tested up to: 5.8.2
+Tested up to: 5.8.3
 Stable tag: 4.3
 
 Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
 
 == Description ==
+
+TODO
+
+* Change `plugin-name` to your plugin name
+    * Used for Text-Domain
+* Change `plugin_name` to your plugin name
+    * Used for variables
+* Change `Plugin_Name` to your plugin name
+    * Used for @package
+* Change `PLUGIN_NAME` to your plugin name
+    * Used for Constants
+* Change `PN` as prefix to your own prefix
+* Change author if needed
 
 This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
 

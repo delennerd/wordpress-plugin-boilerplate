@@ -1,0 +1,28 @@
+{
+  "name": "wordpress-plugin-boilerplate",
+  "version": "1.0.0",
+  "description": "=== Plugin Name === Contributors: passl19 Tags: comments, spam Requires at least: 3.0.1 Tested up to: 5.8.3 Stable tag: 4.3",
+  "main": "webpack.mix.js",
+  "scripts": {
+    "dev": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "mix --production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delennerd/wordpress-plugin-boilerplate.git"
+  },
+  "author": "delennerd.media <mail@delennerd.de>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delennerd/wordpress-plugin-boilerplate/issues"
+  },
+  "homepage": "https://github.com/delennerd/wordpress-plugin-boilerplate#readme",
+  "devDependencies": {
+    "laravel-mix": "^6.0.39",
+    "sass": "^1.48.0",
+    "sass-loader": "^12.4.0"
+  }
+}

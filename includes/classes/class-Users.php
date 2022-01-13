@@ -5,7 +5,7 @@
  * @since      1.0.0
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes/classes
- * @author     Pascal Lehnert <mail@delennerd.de>
+ * @author     delennerd.media <mail@delennerd.de>
  */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly

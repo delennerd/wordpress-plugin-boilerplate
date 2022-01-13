@@ -9,7 +9,7 @@
  * @since      1.0.0
  * @package    Plugin_Name
  * @subpackage Plugin_Name/includes/classes
- * @author     Pascal Lehnert <mail@delennerd.de>
+ * @author     delennerd.media <mail@delennerd.de>
  */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
@@ -54,7 +54,7 @@ class PN_Loader {
 
     // public function admin_url( $view = 'settings' )
     // {
-    //     return admin_url('options-general.php?page=wlcms-plugin.php&view=' . $view);
+    //     return admin_url('options-general.php?page=plugin-name.php&view=' . $view);
     // }
 
     public function required( $file = "" )
@@ -74,6 +74,7 @@ class PN_Loader {
         require_once $file;
     }
 
+    // Todo: Add a admin page
     /*
     public function get_view( $file = "" )
     {
