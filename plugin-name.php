@@ -13,10 +13,7 @@
  * Domain Path:       /languages
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 define( 'PLUGIN_NAME_DIR', plugin_dir_path( __FILE__ ) );
@@ -30,13 +27,25 @@ define( 'PLUGIN_NAME_DIR_TEMPLATES', PLUGIN_NAME_DIR . 'templates' );
 |--------------------------------------------------------------------------
 */
 $autoloadDirs = [
-    'app/Classes/class-helper',
-    'app/Bootstrap/i18n',
-    'app/inc/enqueue',
-    'app/Bootstrap/loader',
+    '/app/Classes/class-helper',
+    '/app/Bootstrap/i18n',
+    '/app/Include/enqueue',
+    '/app/Bootstrap/loader',
+    '/app/PostType/*',
+    '/app/Taxonomy/*',
 ];
 
 foreach ($autoloadDirs as $file) {
+    if ( false !== strpos( $file, '/*' ) ) {
+        $file_name = str_replace( '*', '', $file );
+        foreach (glob(__DIR__ . $file_name . '*.php') as $sub_file) {
+            if (file_exists($sub_file)) {
+                require_once $sub_file;
+            }
+        }
+
+        continue;
+    }
     require_once PLUGIN_NAME_DIR . $file . '.php';
 }
 
