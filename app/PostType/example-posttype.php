@@ -2,7 +2,7 @@
 /**
  * @since      1.0.0
  * @package    Plugin_Name
- * @subpackage Plugin_Name/App/PostType
+ * @subpackage Plugin_Name/PluginName/PostType
  * @author     delennerd.media <mail@delennerd.de>
  */
 

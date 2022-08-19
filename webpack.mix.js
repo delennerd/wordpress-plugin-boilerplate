@@ -22,11 +22,12 @@ let webpackConfig = {
 };
 
 mix
-	.js("src/js/app.js", "assets/js/app.js")
-	.sass("src/sass/app.scss", "assets/css/app.css")
+	.js("src/js/app.js", "assets/js/plugin-name.js")
+	.sass("src/sass/app.scss", "assets/css/plugin-name.css")
 	.options({
 		processCssUrls: false,
-	});
+    })
+    .copyDirectory("src/images", "assets/images");
 
 if (!mix.inProduction()) {
 	webpackConfig.devtool = "inline-source-map";

@@ -2,31 +2,29 @@
 /**
  * Define the internationalization functionality.
  *
- * @since      1.0.0
+ * @since      0.0.1
  * @package    Plugin_Name
- * @subpackage Plugin_Name/App/Bootstrap
- * @author     delennerd.media <mail@delennerd.de>
+ * @subpackage Bootstrap
+ * @author     Pascal Lehnert <mail@delennerd.de>
  */
+
+namespace PluginName\Bootstrap;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-class PN_I18n {
+class I18nLoader {
 
 	/**
 	 * Load the plugin text domain for translation.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1.0
 	 */
-	public function load_plugin_textdomain() {
+	public static function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
 			'plugin-name',
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			dirname( PLUGIN_NAME_BASENAME ) . '/languages/'
 		);
-
 	}
-
-
-
 }
