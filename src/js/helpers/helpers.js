@@ -1,6 +1,6 @@
 export default class Helpers {
     constructor() {
-        this.apiBaseUrl = `${pluginNameConfig.apiUrl}/riedl-catalog/v1`
+        this.apiBaseUrl = `${pluginNameConfig.apiUrl}/api-endpoint/v1`
 
         this.paginationWrapperId = 'product-pagination'
         this.paginationWrapperClass = 'product-pagination'
@@ -57,5 +57,38 @@ export default class Helpers {
 
         // this.paginationWrapper.fadeIn(250)
         this.loader.hide()
+    }
+
+    static getViewportWidth() {
+        var viewportwidth
+        if (typeof window.innerWidth != 'undefined') {
+            viewportwidth = window.innerWidth
+        } else if (
+            typeof document.documentElement != 'undefined' &&
+            typeof document.documentElement.clientWidth != 'undefined' &&
+            document.documentElement.clientWidth != 0
+        ) {
+            viewportwidth = document.documentElement.clientWidth
+        } else {
+            viewportwidth = document.getElementsByTagName('body')[0].clientWidth
+        }
+        return viewportwidth
+    }
+
+    static getViewportHeight() {
+        var viewportHeight
+        if (typeof window.innerHeight != 'undefined') {
+            viewportHeight = window.innerHeight
+        } else if (
+            typeof document.documentElement != 'undefined' &&
+            typeof document.documentElement.clientHeight != 'undefined' &&
+            document.documentElement.clientHeight != 0
+        ) {
+            viewportHeight = document.documentElement.clientHeight
+        } else {
+            viewportHeight =
+                document.getElementsByTagName('body')[0].clientHeight
+        }
+        return viewportHeight
     }
 }

@@ -2,12 +2,16 @@
  * @author Pascal Lehnert <mail@delennerd.de>
  */
 
-// import Example from './components/example'
+import { AuthForm } from './components/forms/AuthForm'
+
+// const jQuery = window.jQuery
 
 class PluginName {
     constructor() {
         // const example = new Example()
         // example.init()
+
+        new AuthForm()
     }
 }
 

@@ -1,4 +1,5 @@
-let mix = require("laravel-mix");
+let mix = require('laravel-mix')
+const path = require('path')
 
 /*
  |--------------------------------------------------------------------------
@@ -12,25 +13,49 @@ let mix = require("laravel-mix");
  */
 
 let webpackConfig = {
-	resolve: {
-		fallback: {
-			stream: require.resolve("stream-browserify"),
-			crypto: false,
-		},
-	},
-	devtool: false,
-};
-
-mix
-	.ts("src/js/app.ts", "assets/js/plugin-name.js")
-	.sass("src/sass/app.scss", "assets/css/plugin-name.css")
-	.options({
-		processCssUrls: false,
-    })
-    .copyDirectory("src/images", "assets/images");
-
-if (!mix.inProduction()) {
-	webpackConfig.devtool = "inline-source-map";
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                options: {},
+                exclude: /node_modules/,
+            },
+        ],
+    },
+    resolve: {
+        extensions: ['*', '.js', '.jsx', '.vue', '.ts', '.tsx'],
+        fallback: {
+            stream: require.resolve('stream-browserify'),
+            crypto: false,
+        },
+    },
+    module: {},
+    devtool: false,
+    optimization: {
+        minimize: false,
+    },
+    stats: {
+        children: true,
+    },
 }
 
-mix.webpackConfig(webpackConfig).sourceMaps();
+mix.options({
+    processCssUrls: false,
+})
+
+mix.alias({
+    '@': path.join(__dirname, 'src/js'),
+})
+mix.ts('src/js/app.ts', 'assets/js/plugin-name.js')
+    .extract()
+    .sass('src/sass/app.scss', 'assets/css/plugin-name.css')
+    .copyDirectory('src/images', 'assets/images')
+
+if (!mix.inProduction()) {
+    webpackConfig.devtool = 'source-map'
+} else {
+    webpackConfig.optimization.minimize = true
+}
+
+mix.webpackConfig(webpackConfig)
