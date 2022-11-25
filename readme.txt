@@ -14,12 +14,11 @@ TODO
 * Change `plugin-name` to your plugin name
     * Used for Text-Domain
 * Change `plugin_name` to your plugin name
-    * Used for variables
-* Change `Plugin_Name` to your plugin name
-    * Used for @package
+    * Used for the prefix
+* Change `PluginName` to your plugin name
+    * Used for @package and namespaces
 * Change `PLUGIN_NAME` to your plugin name
     * Used for Constants
-* Change `PN` as prefix to your own prefix
 * Change author if needed
 
 This is the long description.  No limit, and you can use Markdown (as well as in the following sections).

@@ -59,7 +59,7 @@ class Helper {
     //     if ( $update ) return;
 
     //     $slug_length = 24;
-    //     $new_slug = PN_Helper::generate_random_string( $slug_length );
+        // $new_slug = self::generate_random_string( $slug_length );
 
     //     wp_update_post( array(
     //         'ID' => $post_id,

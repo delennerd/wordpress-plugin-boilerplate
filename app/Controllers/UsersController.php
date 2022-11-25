@@ -8,6 +8,7 @@
 
 namespace PluginName\Controllers;
 
+use PluginName\Helpers\Helper;
 use PluginName\Helpers\LanguageHelper;
 use PluginName\Models\UserModel;
 use PluginName\Services\SiteService;
@@ -118,7 +119,7 @@ class UsersController
     {
         if ( $type !== 'add-new-user' ) return;
 
-        // $new_user_login = PN_Helper::generate_random_number();
+        // $new_user_login = Helper::generate_random_number();
     ?>
 
         <script type="text/javascript">
