@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        // project options
+        "lib": ["es2016", "DOM"],
+        "target": "es5",
+        "module": "es2015",
+        "removeComments": true,
+        "jsx": "preserve",
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+
+        // Strict Checks
+        "strict": true,
+        "allowUnreachableCode": true,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+
+        // Linter Checks
+        "noImplicitThis": false,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true, // Report errors on unused local variables.
+        "noUnusedParameters": false, // Report errors on unused parameters in functions
+        "resolveJsonModule": true, // Used to Importing json files
+
+        "sourceMap": true,
+        "baseUrl": "./",
+        "types": ["node", "jquery"],
+        "paths": {
+            "@app/*": ["src/js/*"]
+        },
+
+        "typeRoots": ["./node_modules/@types", "./types"]
+    },
+    "include": ["src/js/**/*"],
+    "exclude": ["node_modules"]
+}

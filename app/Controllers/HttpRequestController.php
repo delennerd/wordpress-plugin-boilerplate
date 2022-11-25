@@ -64,5 +64,3 @@ class HttpRequestController {
         return $filters_string;
     }
 }
-
-new HttpRequestController();

@@ -3,7 +3,7 @@
  * Define the internationalization functionality.
  *
  * @since      0.0.1
- * @package    Plugin_Name
+ * @package    PluginName
  * @subpackage Bootstrap
  * @author     Pascal Lehnert <mail@delennerd.de>
  */

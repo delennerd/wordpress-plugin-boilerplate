@@ -6,10 +6,25 @@
  * @author     Pascal Lehnert <mail@delennerd.de>
  */
 
-namespace PluginName\Bootstrap;
-
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-$helper_classes = [
-    PluginName\Services\Helper::class,
+$packageClasses = [
+    // Helpers
+    PluginName\Helpers\Helper::class,
+    // Services
+    PluginName\Services\InitFrontendBackend::class,
+    PluginName\Services\AddPageTemplateToDropdown::class,
+    PluginName\Services\SiteService::class,
+
+    // Controllers
+
+    // Post Types
+    PluginName\PostType\ExamplePostType::class,
+    PluginName\PostType\PagePostType::class,
+
+    // Taxonomies
+    PluginName\Taxonomy\ExampleTaxonomy::class,
+
+    // Metaboxes
+    PluginName\Metabox\UserMetabox::class,
 ];

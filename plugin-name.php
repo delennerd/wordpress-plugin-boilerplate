@@ -1,7 +1,7 @@
 <?php
 /**
  * @since             1.0.0
- * @package           Plugin_Name
+ * @package           PluginName
  *
  * @wordpress-plugin
  * Plugin Name:       Plugin Name
@@ -20,7 +20,9 @@ define( 'PLUGIN_NAME_FILE', __FILE__ );
 define( 'PLUGIN_NAME_DIR', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_NAME_BASENAME', plugin_basename( __FILE__ ) );
 define( 'PLUGIN_NAME_URL', plugin_dir_url( __FILE__ ) );
-define( 'PLUGIN_NAME_DIR_TEMPLATES', PLUGIN_NAME_DIR . 'templates' );
+define( 'PLUGIN_NAME_PREFIX', 'plugin_name_' );
+define( 'PLUGIN_NAME_TEMPLATES_DIR', PLUGIN_NAME_DIR . 'templates' );
+define( 'PLUGIN_NAME_COMPONENTS_DIR', PLUGIN_NAME_DIR . 'template-components/' );
 
 /*
 |--------------------------------------------------------------------------

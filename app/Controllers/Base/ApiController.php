@@ -8,7 +8,7 @@
  * @author     Pascal Lehnert <mail@delennerd.de>
  */
 
-namespace PluginName\Controllers;
+namespace PluginName\Controllers\Base;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 

@@ -4,19 +4,19 @@
  *
  * @since      0.0.1
  * @package    PluginName
- * @subpackage Api
+ * @subpackage Controllers\Api
  * @author     Pascal Lehnert <mail@delennerd.de>
  */
 
 // Register routes function in Config/routes.php
 
-namespace PluginName\Api;
+namespace PluginName\Controllers\Api;
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
-use PluginName\Controllers\ApiController;
+use PluginName\Controllers\Base\ApiController;
 
-class ProductApiController extends ApiController
+class ExampleApiController extends ApiController
 {
     public function __construct()
     {

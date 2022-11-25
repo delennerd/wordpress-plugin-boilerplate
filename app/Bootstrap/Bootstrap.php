@@ -3,7 +3,7 @@
  * The Bootstrap class
  *
  * @since      0.0.1
- * @package    Plugin_Name
+ * @package    PluginName
  * @subpackage Bootstrap
  * @author     Pascal Lehnert <mail@delennerd.de>
  */
@@ -25,7 +25,7 @@ class Bootstrap
     {
     }
 
-    public static function get() : Bootstrap
+    public static function get(): Bootstrap
     {
         if (!self::$app) {
             self::$app = new Bootstrap();
@@ -34,30 +34,46 @@ class Bootstrap
         return self::$app;
     }
 
-    public function bootstrap() : void
+    public function bootstrap(): void
     {
-        register_activation_hook(PLUGIN_NAME_FILE, [ $this, 'plugin_activation_action' ]);
+        \register_activation_hook(PLUGIN_NAME_FILE, [ $this, 'plugin_activation_action' ]);
 
         $this->load_i18n();
-        $this->initRoutes();
+        $this->initClasses();
+        
+        \add_action( 'init', [ $this, 'initRoutes' ], 5 );
+        \add_action( 'after_setup_theme', [ $this, 'loadCarbonFields' ] );
     }
 
     public function plugin_activation_action()
     {
-        flush_rewrite_rules(true);
+        \flush_rewrite_rules(true);
     }
 
-    public function initRoutes() : void
+    public function initRoutes(): void
     {
-        require_once PLUGIN_NAME_DIR . '/app/config/routes.php';
+        require_once PLUGIN_NAME_DIR . '/app/Config/routes.php';
 
-        add_action('init', function () {
-            Route::initRoutes();
-        });
+        Route::initRoutes();
     }
 
-    public function load_i18n() : void
+    public function initClasses(): void
+    {
+        require_once PLUGIN_NAME_DIR . 'app/Config/classes.php';
+
+        foreach( $packageClasses as $class ) {
+            new $class;
+        }
+    }
+
+    public function load_i18n(): void
     {
         I18nLoader::load_plugin_textdomain();
+    }
+
+    public function loadCarbonFields(): void
+    {
+        require_once PLUGIN_NAME_DIR . 'vendor/autoload.php';
+        \Carbon_Fields\Carbon_Fields::boot();
     }
 }

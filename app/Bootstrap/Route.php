@@ -1,7 +1,7 @@
 <?php
 /**
  * @since      0.0.1
- * @package    Plugin_Name
+ * @package    PluginName
  * @subpackage Bootstrap
  * @author     Pascal Lehnert <mail@delennerd.de>
  */
@@ -43,6 +43,8 @@ class Route
         add_filter( 'query_vars', [ static::class, 'initQueryVars' ] );
 
         self::initRewriteTemplates();
+
+        flush_rewrite_rules( true );
     }
 
     public function get_routes(): array
@@ -75,15 +77,27 @@ class Route
 
     public static function initRewriteTemplates()
     {
-        foreach( self::$templateFunctions as $customFunction ) {
-            add_action( 'template_redirect', function() use ($customFunction) {
-                return $customFunction();
+        foreach( self::$templateFunctions as $params ) {
+            
+            add_action( 'template_redirect', function() use ($params) {
+
+                $routes = $params['routeParams'];
+                $allRouteKeys = array_keys($routes);
+
+                $callbackFunction = $params['callback'];
+
+                if ( $routes[$allRouteKeys[0]] === get_query_var( $allRouteKeys[0] ) ) {
+                    return $callbackFunction();
+                }
             } );
         }
     }
 
-    public static function addTemplate($function)
+    public static function addTemplate( $function, $routes )
     {
-        self::$templateFunctions[] = $function;
+        self::$templateFunctions[] = [
+            'routeParams' => $routes,
+            'callback' => $function,
+        ];
     }
 }

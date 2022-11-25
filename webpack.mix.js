@@ -22,7 +22,7 @@ let webpackConfig = {
 };
 
 mix
-	.js("src/js/app.js", "assets/js/plugin-name.js")
+	.ts("src/js/app.ts", "assets/js/plugin-name.js")
 	.sass("src/sass/app.scss", "assets/css/plugin-name.css")
 	.options({
 		processCssUrls: false,
